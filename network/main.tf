@@ -12,10 +12,10 @@ provider "aws" {
 //Modify the bucket and dynamoDB table that are used by Terraform
 terraform {
   backend "s3" {
-    bucket         = "art-tf-backend"
+    bucket         = "a-tf-bucket"
     key            = "network.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-backend-locks"
+    dynamodb_table = "private-eks-tf-lock"
   }
 }
 module "private_vpc" {
