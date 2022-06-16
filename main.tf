@@ -13,17 +13,17 @@ provider "aws" {
 //Modify the bucket and dynamoDB table that are used by Terraform
 terraform {
   backend "s3" {
-    bucket         = "DOC-EXAMPLE-BUCKET"
-    key            = "private-windows-eks.tfstate"
+    bucket         = "a-tf-bucket"
+    key            = "private-test-eks.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "private-windows-eks-tf-lock"
+    dynamodb_table = "private-eks-tf-lock"
   }
 }
 
 data terraform_remote_state "network" {
     backend = "s3"
     config = {
-        bucket = "DOC-EXAMPLE-BUCKET"
+        bucket = "a-tf-bucket""
         key = "network.tfstate"
         region = "us-east-1"
      }
